@@ -17,8 +17,7 @@ import com.puc.sca.bi.model.DadoSensorBarragem;
 import com.puc.sca.bi.repository.DadoSensorBarragemRepository;
 
 /**
- * Controller integrado a sensores IOT instalados na barragem informando os
- * níveis de alerta.
+ * Controller que recebe os dados do sensor e persiste em um banco de dados não relacional.
  * 
  * @author breno
  *
