@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.7.RELEASE</version>
+		<version>2.2.6.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.puc.sca.bi</groupId>
@@ -16,7 +16,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		<spring-cloud.version>Greenwich.SR2</spring-cloud.version>
+		<spring-cloud.version>Hoxton.SR4</spring-cloud.version>
 	</properties>
 	
 	<profiles>
@@ -30,9 +30,6 @@
 			</properties>
 		</profile>
 		<profile>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
 			<id>test</id>
 			<properties>
 				<activatedProperties>test</activatedProperties>
@@ -40,9 +37,6 @@
 		</profile>
 		<profile>
 			<id>hml</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
 			<properties>
 				<activatedProperties>hml</activatedProperties>
 			</properties>
