@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,18 +31,18 @@ public class DadoMonitoramentoBarragemController {
 	private DadoSensorBarragemRepository dadoSensorBarragemRepository;
 
 	@PostMapping
-	public void incluiDadoMonitoramento(@RequestBody DadoSensorBarragem dadoSensorBarragem) {
+	public ResponseEntity<DadoSensorBarragem> incluiDadoMonitoramento(@RequestBody DadoSensorBarragem dadoSensorBarragem) {
 		dadoSensorBarragem.setDataCriacaoRegistro(LocalDateTime.now());
-		this.dadoSensorBarragemRepository.save(dadoSensorBarragem);
+		return ResponseEntity.ok(this.dadoSensorBarragemRepository.save(dadoSensorBarragem));
 	}
 
 	@GetMapping
-	public Iterable<DadoSensorBarragem> getDadosMonitoramento(
+	public ResponseEntity<Iterable<DadoSensorBarragem>> getDadosMonitoramento(
 			@RequestParam("page") Integer page,
 			@RequestParam("size") Integer size, 
 			@RequestParam(name = "sort", defaultValue = "id") String sort) {
 		Pageable pageable = PageRequest.of(page - 1, size, Sort.by(sort));
-		return this.dadoSensorBarragemRepository.findAll(pageable);
+		return ResponseEntity.ok(this.dadoSensorBarragemRepository.findAll(pageable));
 	}
 
 }
