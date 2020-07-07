@@ -1,6 +1,6 @@
 package com.puc.sca.bi.exception.handler;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
@@ -19,7 +19,7 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
 	public final ResponseEntity<ExceptionResponse> handleAllExceptions(Exception ex, WebRequest request) {
 		final ExceptionResponse exceptionResponse = 
 				new ExceptionResponse(
-						new Date(),
+						LocalDateTime.now(),
 						request.getDescription(false),
 						ex.getMessage());
 		return new ResponseEntity<>(exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -29,7 +29,7 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
 	public final ResponseEntity<ExceptionResponse> handleBadRequestExceptions(ResourceNotFoundException ex, WebRequest request) {
 		final ExceptionResponse exceptionResponse = 
 				new ExceptionResponse(
-						new Date(),
+						 LocalDateTime.now(),
 						request.getDescription(false),
 						ex.getMessage());
 		return new ResponseEntity<>(exceptionResponse, HttpStatus.NOT_FOUND);
