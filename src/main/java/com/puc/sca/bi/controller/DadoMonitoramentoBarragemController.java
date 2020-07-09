@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,7 +34,8 @@ public class DadoMonitoramentoBarragemController {
 	@PostMapping
 	public ResponseEntity<DadoSensorBarragem> incluiDadoMonitoramento(@RequestBody DadoSensorBarragem dadoSensorBarragem) {
 		dadoSensorBarragem.setDataCriacaoRegistro(LocalDateTime.now());
-		return ResponseEntity.ok(this.dadoSensorBarragemRepository.save(dadoSensorBarragem));
+		final DadoSensorBarragem d = this.dadoSensorBarragemRepository.save(dadoSensorBarragem);
+		return ResponseEntity.status(HttpStatus.CREATED).body(d);
 	}
 
 	@GetMapping
