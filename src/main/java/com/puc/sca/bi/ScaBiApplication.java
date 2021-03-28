@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
- * 
+ * BI
  * @author breno.
  */
 
@@ -14,9 +14,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 public class ScaBiApplication {
 
 	public static void main(String[] args) {
+		
 		SpringApplication.run(ScaBiApplication.class, args);
 	}
-	
+
 }
-
-
