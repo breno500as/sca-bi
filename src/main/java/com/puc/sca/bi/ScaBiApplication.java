@@ -16,6 +16,4 @@ public class ScaBiApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ScaBiApplication.class, args);
 	}
-
-	
 }
